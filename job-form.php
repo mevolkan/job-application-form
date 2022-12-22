@@ -1,13 +1,14 @@
 <?php
 
 /**
- * Template Name: Warranty Template
+ * Template Name: Job Form
  */
 get_header(); ?>
-<?php header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Credentials: true");
+<?php
+// header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+// header("Access-Control-Allow-Headers: *");
+// header("Access-Control-Allow-Credentials: true");
 ?>
 
 <?php
@@ -23,8 +24,8 @@ if (has_post_thumbnail($post->ID)) :
 <?php endwhile; // end of the loop. 
 ?>
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
-      Select image to upload:
-      <input type="file" name="fileToUpload" id="fileToUpload">
+<form action="process.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
 </form>
