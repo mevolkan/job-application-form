@@ -1,74 +1,103 @@
 // Upload file
+var resumePath;
 
-var files = document.getElementById("cvresume").files;
+document.getElementById("cv").onchange = function () {
+    var files = document.getElementById("cv").files;
+    if (files.length > 0) {
 
-document.getElementById("cvresume").onchange = function () {
+        var formData = new FormData();
+        formData.append("file", files[0]);
 
-   if (files.length > 0) {
+        var xhttp = new XMLHttpRequest();
 
-      var formData = new FormData();
-      formData.append("file", files[0]);
+        // Set POST method and ajax file path
+        xhttp.open("POST", "ajaxfile.php", true);
 
-      var xhttp = new XMLHttpRequest();
+        // call on request changes state
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
 
-      // Set POST method and ajax file path
-      xhttp.open("POST", "ajax.php", true);
+                var response = this.responseText;
+               
+                response = JSON.parse(response);
 
-      // call on request changes state
-      xhttp.onreadystatechange = function () {
-         if (this.readyState == 4 && this.status == 200) {
+                // console.log(response.status);
+                console.log(response.url);
 
-            var response = this.responseText;
-            if (response == 1) {
-               alert("CV successfully.");
-            } else {
-               alert("CV not uploaded.");
+                if (response.status == 1) {
+                    alert("Upload successfully.");
+                    console.log(files[0].name)
+
+                } else {
+                    alert("File not uploaded.");
+                    
+                }
+                document.getElementById("fileoutput").textContent +=`${response.url}`;
+                
             }
-         }
-      };
+        };
 
-      // Send request with data
-      xhttp.send(formData);
+        // Send request with data
+        xhttp.send(formData);
 
-   } else {
-      alert("Please select a file");
-   }
+    } else {
+        alert("Please select a file");
+    }
 
 }
+
 
 //senď form data
+
 function sendFormData() {
-   // WARNING: For POST requests, body is set to null by browsers.
-   var data = JSON.stringify({
-      "job_id": "18532",
-      "applicant_name": "John Doe",
-      "applicant_email": "john.doe@gmail.com",
-      "applicant_phone": "254712365478",
-      "applicant_mobile": "254123654789",
-      "years_experience": "3",
-      "salary_expected": "100000",
-      "availability": "2022-12-31",
-      "notice_period": "3 Months",
-      "cv": "",
-      "cover_letter": "",
-      "source_id": "1",
-      "referred_by": "sanergy_emp",
-      "highest_qualification": "2"
-   });
 
-   var xhr = new XMLHttpRequest();
-   xhr.withCredentials = true;
+    const form = document.getElementById('careersform');
+    const formData = new FormData(form);
 
-   xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-         console.log(this.responseText);
-      }
-   });
+    const output = document.getElementById('output');
 
-   xhr.open("POST", "https://odoo.staging.saner.gy/apply-job");
-   xhr.setRequestHeader("Content-Type", "application/json");
-   // WARNING: Cookies will be stripped away by the browser before sending the request.
-   xhr.setRequestHeader("Cookie", "session_id=b591d5ec05ddf40158fdd497e3757a9603807e16");
+    for (const [key, value] of formData) {
+        output.textContent += `${key}: ${value}\n`;
+    }
+    // console.log(formData);
+    // formData= Object.fromEntries(formData)
+    applicationData = JSON.stringify(Object.fromEntries(formData))
+    console.log(applicationData);
 
-   xhr.send(data);
-}
+
+    // // WARNING: For POST requests, body is set to null by browsers.
+    // var data = JSON.stringify({
+    //    "job_id": "18532",
+    //    "applicant_name": "John Doe",
+    //    "applicant_email": "john.doe@gmail.com",
+    //    "applicant_phone": "254712365478",
+    //    "applicant_mobile": "254123654789",
+    //    "years_experience": "3",
+    //    "salary_expected": "100000",
+    //    "availability": "2022-12-31",
+    //    "notice_period": "3 Months",
+    //    "cv": "",
+    //    "cover_letter": "",
+    //    "source_id": "1",
+    //    "referred_by": "sanergy_emp",
+    //    "highest_qualification": "2"
+    // });
+ 
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+ 
+    xhr.addEventListener("readystatechange", function () {
+       if (this.readyState === 4) {
+          console.log(this.responseText);
+       }
+    });
+ 
+    xhr.open("POST", "https://odoo.staging.saner.gy/apply-job");
+    xhr.setRequestHeader("Content-Type", "application/json");
+  
+    xhr.send(applicationData);
+
+
+    
+ }
+ 
