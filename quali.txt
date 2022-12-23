@@ -1,0 +1,24 @@
+ {
+            "id": 8,
+            "name": "Certificate"
+        },
+        {
+            "id": 9,
+            "name": "Diploma"
+        },
+        {
+            "id": 7,
+            "name": "Graduate"
+        },
+        {
+            "id": 2,
+            "name": "Bachelor Degree"
+        },
+        {
+            "id": 3,
+            "name": "Master Degree"
+        },
+        {
+            "id": 4,
+            "name": "Doctoral Degree"
+        }
