@@ -1,24 +1,22 @@
 // Upload file
 var resumePath;
 
-document.getElementById("cv").onchange = function () {
-    var files = document.getElementById("cv").files;
+document.getElementById("resume").onchange = function () {
+    var files = document.getElementById("resume").files;
     if (files.length > 0) {
 
         var formData = new FormData();
         formData.append("file", files[0]);
 
         var xhttp = new XMLHttpRequest();
-
         // Set POST method and ajax file path
-        xhttp.open("POST", "ajaxfile.php", true);
+        xhttp.open("POST", "/skunk/wp-content/plugins/job/ajax.php", true);
 
         // call on request changes state
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
                 var response = this.responseText;
-               
                 response = JSON.parse(response);
 
                 // console.log(response.status);
@@ -27,13 +25,10 @@ document.getElementById("cv").onchange = function () {
                 if (response.status == 1) {
                     alert("Upload successfully.");
                     console.log(files[0].name)
-
                 } else {
                     alert("File not uploaded.");
-                    
                 }
-                document.getElementById("fileoutput").textContent +=`${response.url}`;
-                
+                document.getElementById("fileoutput").textContent += `${response.url}`;
             }
         };
 
@@ -53,7 +48,6 @@ function sendFormData() {
 
     const form = document.getElementById('careersform');
     const formData = new FormData(form);
-
     const output = document.getElementById('output');
 
     for (const [key, value] of formData) {
@@ -82,22 +76,17 @@ function sendFormData() {
     //    "referred_by": "sanergy_emp",
     //    "highest_qualification": "2"
     // });
- 
+
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
- 
     xhr.addEventListener("readystatechange", function () {
-       if (this.readyState === 4) {
-          console.log(this.responseText);
-       }
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
     });
- 
+
     xhr.open("POST", "https://odoo.staging.saner.gy/apply-job");
     xhr.setRequestHeader("Content-Type", "application/json");
-  
     xhr.send(applicationData);
 
-
-    
- }
- 
+}

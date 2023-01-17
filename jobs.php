@@ -171,8 +171,8 @@ function job_scripts($hook)
     $my_css_ver = date("ymd-Gis", filemtime(plugin_dir_path(__FILE__) . 'styles/style.css'));
 
     // 
-    wp_register_script('careers_js', plugins_url('scripts/file.js', __FILE__), array(), $my_js_ver);
-    wp_register_style('careers_css',     plugins_url('styles/style.css',      __FILE__), false,   $my_css_ver);
+    wp_register_script('careers_js', plugins_url('scripts/file.js', __FILE__), array(), $my_js_ver, true);
+    wp_register_style('careers_css', plugins_url('styles/style.css', __FILE__), false, $my_css_ver);
     wp_enqueue_style('careers_css');
     wp_enqueue_script('careers_js');
 }
