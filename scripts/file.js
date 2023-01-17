@@ -28,7 +28,10 @@ document.getElementById("resume").onchange = function () {
                 } else {
                     alert("File not uploaded.");
                 }
-                document.getElementById("fileoutput").textContent += `${response.url}`;
+                var cvUrl = document.getElementById("fileoutput");
+                cvUrl.textContent += `${response.url}`;
+                cvUrl.href += `wp-content/plugins/job/`+`${response.url}`;
+                console.log(cvUrl);
             }
         };
 

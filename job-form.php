@@ -60,7 +60,7 @@ get_header(); ?>
             </select>
 
             <br>
-            <div id="fileoutput"></div>
+            <a id="fileoutput" href=""></a>
             <br>
             <input type="button" id="btn_uploadfile" value="Upload" onclick="sendFormData();" />
         </form>
