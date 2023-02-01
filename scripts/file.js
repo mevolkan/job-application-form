@@ -30,7 +30,7 @@ document.getElementById("resume").onchange = function () {
                 }
                 var cvUrl = document.getElementById("fileoutput");
                 cvUrl.textContent += `${response.url}`;
-                cvUrl.href += `wp-content/plugins/job/`+`${response.url}`;
+                cvUrl.href += `./wp-content/plugins/job/`+`${response.url}`;
                 console.log(cvUrl);
             }
         };
