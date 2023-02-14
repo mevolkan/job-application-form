@@ -37,11 +37,11 @@ get_header(); ?>
             <br>
             <label for="resume">
                 CV</label>
-            <input type="file" name="resume" id="resume" />
+            <input type="file" name="resume" id="resume"  oninput="uploadFiles(this.files, this.id)" />
             <br>
-            <label>
+            <label for="cover_letter">
                 Cover Letter</label>
-            <input type="file" name="cover_letter" id="cover_letter" />
+            <input type="file" name="cover_letter" id="cover_letter" oninput="uploadFiles(this.files, id)" />
 
             <label></label>
             <input type="number" name="source_id" hidden value="1" />
@@ -62,7 +62,7 @@ get_header(); ?>
             <br>
             <a id="fileoutput" href=""></a>
             <br>
-            <input type="button" id="btn_uploadfile" value="Upload" onclick="sendFormData();" />
+            <input type="button" id="btn_uploadfile" value="Send" onclick="sendFormData();" />
         </form>
     </div>
 

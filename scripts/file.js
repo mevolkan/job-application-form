@@ -1,18 +1,17 @@
 // Upload file
 var resumePath;
 
-document.getElementById("resume").onchange = function () {
-    var files = document.getElementById("resume").files;
+function uploadFiles (files,id) {
+    // var files = document.getElementById("resume").files;
+    console.log(files)
     if (files.length > 0) {
 
         var formData = new FormData();
         formData.append("file", files[0]);
 
         var xhttp = new XMLHttpRequest();
-        // Set POST method and ajax file path
+     
         xhttp.open("POST", "/skunk/wp-content/plugins/job/ajax.php", true);
-
-        // call on request changes state
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
@@ -28,14 +27,13 @@ document.getElementById("resume").onchange = function () {
                 } else {
                     alert("File not uploaded.");
                 }
-                var cvUrl = document.getElementById("fileoutput");
+                var cvUrl = document.getElementById(id);
                 cvUrl.textContent += `${response.url}`;
                 cvUrl.href += `./wp-content/plugins/job/`+`${response.url}`;
                 console.log(cvUrl);
             }
         };
 
-        // Send request with data
         xhttp.send(formData);
 
     } else {
