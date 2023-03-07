@@ -3,13 +3,13 @@ var fileData = []
 
 function uploadFiles(files, id) {
     // var files = document.getElementById("resume").files;
-    //console.log(files)
+    // console.log(files.length)
     if (files.length > 0) {
 
         var formData = new FormData();
         formData.append("file", files[0]);
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "/skunk/wp-content/plugins/job/ajax.php", true);
+        xhttp.open("POST", "/wp-content/plugins/job/ajax.php", true);
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
@@ -36,23 +36,23 @@ function uploadFiles(files, id) {
                 node.href = `./wp-content/plugins/job/` + `${response.url}`;
                 node.title = files[0].name
                 document.getElementById(id).appendChild(node);
-                fileData.push({ [id]: node.href });
-
-                //console.log(fileData);
-
-
+                if (id.includes("resume")) {
+                    // fileData.push({ [id]: node.href });
+                    fileData.resume = node.href;
+                    console.log(fileData.resume);
+                } else if (id.includes("cover_letter")) {
+                    // fileData.push({ [id]: node.href });
+                    fileData.cover_letter = node.href;
+                }
+                // console.log(fileData);
             }
         };
         xhttp.send(formData);
         console.log(fileData);
-
-
     } else {
         alert("Please select a file");
     }
-
 }
-
 
 //senď form data
 
@@ -63,9 +63,11 @@ function sendFormData() {
 
     // console.log(Object.fromEntries(formData));
     // formData= Object.fromEntries(formData)
-    if (fileData.length > 1) {
-        formData.set('resume', fileData[0].resume)
-        formData.set('cover_letter', fileData[1].cover_letter)
+    if (Object.keys(fileData).length > 1) {
+        formData.set('resume', fileData.resume)
+        formData.set('cover_letter', fileData.cover_letter)
+
+        console.log(fileData)
 
         for (const key in fileData) {
             if (fileData.hasOwnProperty(key)) {
@@ -75,14 +77,11 @@ function sendFormData() {
 
         var applicationData = JSON.stringify(Object.fromEntries(formData))
 
-        console.log(applicationData);
-
-
-        var url = "https://webhook.site/67d221e1-fa8e-48a1-95db-bcfad9bc9137";
+        var url = "https://webhook.site/f4d1cafd-fd2c-47cb-9da1-7e37cc7a42bd";
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url);
-        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Content-Type", "text/plain");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
@@ -96,10 +95,8 @@ function sendFormData() {
         xhr.send(applicationData);
 
     } else {
-        alert("Please select a file");
+        alert("Please upload a file");
+        console.log(fileData.length)
     }
-
-
-
 
 }
