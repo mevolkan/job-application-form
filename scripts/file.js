@@ -1,6 +1,18 @@
 // Upload file
 var fileData = []
 
+decodeURI(window.location.search)
+  .replace('?', '')
+  .split('&')
+  .map(param => param.split('='))
+  .reduce((values, [ key, value ]) => {
+    values[ key ] = value
+    //return values
+    fileData= values
+    return fileData
+  }, {})
+
+
 function uploadFiles(files, id) {
     // var files = document.getElementById("resume").files;
     // console.log(files.length)

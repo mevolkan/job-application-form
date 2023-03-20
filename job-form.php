@@ -10,7 +10,7 @@ get_header(); ?>
     <?php the_content(); ?>
     <div>
         <form id="careersform">
-            <input name="job_id" id="job_id" type="number" hidden value="18532" />
+            <input name="job_id" id="job_id" type="number" hidden />
             <label for="applicant_name">Applicant Name</label>
             <input name="applicant_name" type="text" id="applcant_name" placeholder="Name" />
             <br>
