@@ -10,15 +10,16 @@ get_header(); ?>
     <?php the_content(); ?>
     <div>
         <form id="careersform">
+        <input name="job_id" id="job_id" type="number" hidden />
+        <div class='wpb_row vc_row-fluid vc_row inner_row  vc_row-o-equal-height vc_row-flex'>
             <div class="row_col_wrap_12 col span_12 dark left">
-                <div class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-4-percent inherit_tablet inherit_phone ">
+                <div class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-4-percent inherit_tablet inherit_phone">
                     <div class="vc_column-inner">
-                        <input name="job_id" id="job_id" type="number" hidden />
                         <label for="applicant_name">Applicant Name</label>
                         <input name="applicant_name" type="text" id="applcant_name" placeholder="Name" />
                     </div>
                 </div>
-                <div class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-4-percent inherit_tablet inherit_phone ">
+                <div class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-4-percent inherit_tablet inherit_phone">
                     <div class="vc_column-inner">
                         <label for="applicant_email">Applicant Email</label>
                         <input name="applicant_email" type="email" id="applcant_email" placeholder="Email" />
@@ -72,6 +73,7 @@ get_header(); ?>
             <a id="fileoutput" href=""></a>
             <br>
             <input type="button" id="btn_uploadfile" value="Send" onclick="sendFormData();" />
+        </div>
         </form>
     </div>
 
