@@ -9,6 +9,16 @@ get_header(); ?>
 <div class="container">
     <?php the_content(); ?>
     <div>
+        <?php
+        if (isset($GLOBALS["HTTP_RAW_POST_DATA"])) {
+            $xml = $GLOBALS["HTTP_RAW_POST_DATA"];
+            $file = fopen("data.xml", "wb");
+            fwrite($file, $xml);
+            fclose($file);
+            echo ($GLOBALS["HTTP_RAW_POST_DATA"]);
+        }
+        ?>
+
         <form id="careersform">
             <input name="job_id" id="job_id" type="number" hidden />
             <div class='wpb_row vc_row-fluid vc_row inner_row  vc_row-o-equal-height vc_row-flex'>
@@ -103,7 +113,7 @@ get_header(); ?>
                 <br>
                 <a id="fileoutput" href=""></a>
                 <br>
-                <input type="button" id="btn_uploadfile" value="Send" onclick="sendFormData();" />
+                <input type="button" id="btn_uploadfile" value="Submit Application" onclick="sendFormData();" />
             </div>
         </form>
     </div>
