@@ -7,7 +7,7 @@
                 <div class='vc_column-inner'>
                     <p><?php echo $job['job_location']; ?></p>
                     <h3> <?php echo $job['role_name']; ?></h3>
-                    <p><?php echo $job['about_role']; ?></p>
+                    <div class="about"><?php echo $job['about_role']; ?></div>
                     <a class='nectar-button medium regular extra-color-2 has-icon regular-button' href="<?php echo site_url(); ?>/apply-job/?job_id=<?php echo $job['role_id']; ?>"> Apply</a>
                 </div>
             </div>

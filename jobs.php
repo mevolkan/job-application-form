@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Jobs Plugin : Sanergy
-Plugin URI: http://www.wpexplorer.com/wordpress-page-templates-plugin/
-Version: 1.1.0
-Author: WPExplorer
-Author URI: http://www.wpexplorer.com/
+Plugin URI: https://github.com/mevolkan
+Version: 1.2.0
+Author: Volkan
+Author URI: https://github.com/mevolkan
 */
 
 class PageTemplater
