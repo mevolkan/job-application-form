@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+   
+  </style>
+  <body>
+    <div id="jobs"></div>
+    <script>
+      fetch("https://odoo.saner.gy/fetch-jobs?company_id=1")
+        .then((response) => {
+          if (response.status >= 400 && response.status < 600) {
+            throw new Error("Bad response from server");
+          }
+          return response;
+        })
+        .then((response) => {
+          // console.log(response)
+          return response.json();
+        })
+        .then((data) => {
+          // console.log(data);
+          jobs = data;
+          length = jobs.length;
+          var jobContent = "";
+          for (i = 0; i < length; i++) {
+            jobContent += "<h3>" + jobs[i].role_name + "</h3>";
+            jobContent += "<div>";
+            jobContent +=
+              (jobs[i].job_location === null) | (jobs[i].job_location === "")
+                ? ""
+                : "<b>Job Location:</b> " + jobs[i].job_location;
+            jobContent +=
+              (jobs[i].application_deadline === null) |
+              (jobs[i].application_deadline === "")
+                ? ""
+                : " | <b>Application Deadline:</b> " +
+                  jobs[i].application_deadline;
+            jobContent +=
+              (jobs[i].start_date === null) | (jobs[i].start_date === "")
+                ? ""
+                : " | <b>Start Date:</b> " + jobs[i].start_date;
+            jobContent += "</div>";
+            jobContent += "<br>";
+            jobContent +=
+              (jobs[i].about_role === null) | (jobs[i].about_role === "")
+                ? ""
+                : "<b>About Role</b> " + jobs[i].about_role;
+            jobContent += "<br>";
+            jobContent +=
+              (jobs[i].duties_and_responsibilities === null) |
+              (jobs[i].duties_and_responsibilities === "")
+                ? ""
+                : "<b>Duties and Responsibilities</b> " +
+                  jobs[i].duties_and_responsibilities;
+            jobContent += "<br>";
+            jobContent +=
+              (jobs[i].qualifications === null) |
+              (jobs[i].qualifications === "")
+                ? ""
+                : "<b>Job Qualifications</b> " + jobs[i].qualifications;
+                jobContent +=
+              "<a href='/apply-job/?job_id=" + jobs[i].role_id + "' id='";
+            jobContent += jobs[i].role_id;
+            jobContent +=
+              "'class='nectar-button small regular accent-color  regular-button'> Apply</a>";
+            jobContent += "<hr>";
+          }
+          document.getElementById("jobs").innerHTML = jobContent;
+        })
+        .catch((error) => {
+          // Your error is here!
+          document.getElementById("jobs").innerHTML =
+            "<h3>No Jobs Available</h3>";
+          //console.log(error)
+        });
+    </script>
+  </body>
+</html>
