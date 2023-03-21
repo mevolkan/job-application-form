@@ -27,7 +27,7 @@ get_header(); ?>
             echo "Error: " . $error['message'];
         } else {
             // set the template variables
-            $title = 'Jobs List';
+            $title = 'Current Vacancies';
             $jobs = json_decode($response, true);
 
             // render the template
