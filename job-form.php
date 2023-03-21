@@ -10,14 +10,27 @@ get_header(); ?>
     <?php the_content(); ?>
     <div>
         <?php
-        if (isset($GLOBALS["HTTP_RAW_POST_DATA"])) {
-            $xml = $GLOBALS["HTTP_RAW_POST_DATA"];
-            $file = fopen("data.xml", "wb");
-            fwrite($file, $xml);
-            fclose($file);
-            echo ($GLOBALS["HTTP_RAW_POST_DATA"]);
+
+        // set the URL and query parameters
+        $url = 'https://odoo.develop.saner.gy/fetch-jobs';
+        $params = array('company_id' => 2);
+
+        // build the URL with query parameters
+        $url .= '?' . http_build_query($params);
+
+        // make the request and get the response
+        $response = @file_get_contents($url);
+        if ($response === false) {
+            // handle error
+            $error = error_get_last();
+            echo "Error: " . $error['message'];
+        } else {
+            // output the response
+            echo $response;
         }
+
         ?>
+
 
         <form id="careersform">
             <input name="job_id" id="job_id" type="number" hidden />
