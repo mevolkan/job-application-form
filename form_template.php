@@ -1,5 +1,5 @@
+<div class="apply-job">
 <h2>Apply for this job</h2>
-
 <form id="careersform">
     <input name="job_id" id="job_id" type="number" hidden />
     <div class='wpb_row vc_row-fluid vc_row inner_row  vc_row-o-equal-height vc_row-flex'>
@@ -97,3 +97,4 @@
         <input type="button" id="btn_uploadfile" value="Submit Application" onclick="sendFormData();" />
     </div>
 </form>
+</div>
