@@ -67,7 +67,7 @@
                     <input type="file" name="resume" id="resume" oninput="uploadFiles(this.files, this.id)" />
                 </div>
             </div>
-            <div class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-4-percent inherit_tablet inherit_phone">
+            <div class="vc_col-sm-6 wpb_column column_container vc_column_container col inherit_tablet inherit_phone">
                 <div class="vc_column-inner">
                     <label for="cover_letter">
                         Cover Letter</label>
