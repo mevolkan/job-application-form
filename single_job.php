@@ -9,4 +9,7 @@
     <?php echo $job['duties_and_responsibilities']; ?>
     <h2>Qualifications</h2>
     <?php echo $job['qualifications']; ?>
+    <?php if ($job['start_date'] != null): ?>
+                <p><strong>Start Date:</strong> <?php echo $job['start_date']; ?></p>
+            <?php endif; ?>
 <?php endforeach; ?>
