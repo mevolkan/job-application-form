@@ -20,16 +20,27 @@ get_header(); ?>
 
         // make the request and get the response
         $response = @file_get_contents($url);
+
         if ($response === false) {
             // handle error
             $error = error_get_last();
             echo "Error: " . $error['message'];
         } else {
+            // set the template variables
+            $title = 'Jobs List';
+            $jobs = json_decode($response, true);
+
+            // render the template
+            ob_start();
+            include 'jobs_template.php';
+            $content = ob_get_clean();
+
             // output the response
-            echo $response;
+            echo $content;
         }
 
         ?>
+
 
 
         <form id="careersform">
