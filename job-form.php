@@ -10,13 +10,22 @@ get_header(); ?>
     <?php the_content(); ?>
     <div>
         <form id="careersform">
-            <input name="job_id" id="job_id" type="number" hidden />
-            <label for="applicant_name">Applicant Name</label>
-            <input name="applicant_name" type="text" id="applcant_name" placeholder="Name" />
-            <br>
-            <label for="applicant_email">Applicant Email</label>
-            <input name="applicant_email" type="email" id="applcant_email" placeholder="Email" />
-            <br>
+            <div class="row_col_wrap_12 col span_12 dark left">
+                <div class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-4-percent inherit_tablet inherit_phone ">
+                    <div class="vc_column-inner">
+                        <input name="job_id" id="job_id" type="number" hidden />
+                        <label for="applicant_name">Applicant Name</label>
+                        <input name="applicant_name" type="text" id="applcant_name" placeholder="Name" />
+                    </div>
+                </div>
+                <div class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-4-percent inherit_tablet inherit_phone ">
+                    <div class="vc_column-inner">
+                        <label for="applicant_email">Applicant Email</label>
+                        <input name="applicant_email" type="email" id="applcant_email" placeholder="Email" />
+                    </div>
+                </div>
+            </div>
+
             <label for="applicant_phone">Applicant Phone Number</label>
             <input name="applicant_phone" type="tel" placeholder="Phone Number" />
             <br>
@@ -37,7 +46,7 @@ get_header(); ?>
             <br>
             <label for="resume">
                 CV</label>
-            <input type="file" name="resume" id="resume"  oninput="uploadFiles(this.files, this.id)" />
+            <input type="file" name="resume" id="resume" oninput="uploadFiles(this.files, this.id)" />
             <br>
             <label for="cover_letter">
                 Cover Letter</label>
