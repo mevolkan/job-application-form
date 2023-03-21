@@ -33,11 +33,15 @@ get_header(); ?>
             // Define the desired role ID
             $role_id = 19111;
 
-            // Use array_filter to find the job object with the desired role ID
-            $singlejob = current(array_filter($jobs['jobs'], function ($singlejob) use ($role_id) {
-                return $singlejob['role_id'] === $role_id;
-            }));
 
+            // Filter jobs by role_id
+            $filtered_jobs = array_filter($jobs, function ($job) use ($role_id) {
+                return $job['role_id'] === $role_id;
+            });
+
+            // Get the first matching job
+            $singlejob = reset($filtered_jobs);
+            
             // Check if the job object was found
             if ($singlejob === null) {
                 echo 'Error: Job with role ID ' . $role_id . ' not found.';
