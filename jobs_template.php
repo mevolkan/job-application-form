@@ -1,5 +1,6 @@
-<h2>Current Vacancies</h2>
-
+<div class="vacancy">
+<h2 >Current Vacancies</h2>
+<hr>
 <div class='wpb_row vc_row-fluid vc_row inner_row vc_row-o-equal-height vc_row-flex'>
     <div class='row_col_wrap_12_inner col span_12  left jobs'>
         <?php foreach ($jobs as $job) : ?>
@@ -13,4 +14,5 @@
             </div>
         <?php endforeach; ?>
     </div>
+</div>
 </div>

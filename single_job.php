@@ -25,15 +25,15 @@
             </strong>
         </p>
         <?php if ($job['about_role'] != null) : ?>
-            <h2>About the Role</h2>
+            <strong>About the Role</strong>
             <p> <?php echo $job['about_role']; ?></p>
         <?php endif; ?>
         <?php if ($job['duties_and_responsibilities'] != null) : ?>
-            <h2>Duties and Responsibilities</h2>
+            <strong>Duties and Responsibilities</strong>
             <p> <?php echo $job['duties_and_responsibilities']; ?></p>
         <?php endif; ?>
         <?php if ($job['qualifications'] != null) : ?>
-            <h2>Qualifications</h2>
+            <strong>Qualifications</strong>
             <p> <?php echo $job['qualifications']; ?></p>
         <?php endif; ?>
         <?php echo $job['qualifications']; ?>

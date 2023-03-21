@@ -1,6 +1,20 @@
 .apply-job{
-  padding: 20px 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+  padding: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 20px 0
+}
+.apply-job h2{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.vacancy{
+  margin: 30px auto;
+}
+.vacancy h2{
+  text-align: center;
+}
+#careersform .vc_column-inner{
+  padding-bottom: 10px;
 }
 input[type="number"],
 input[type="file"] {
