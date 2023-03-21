@@ -1,4 +1,4 @@
-<?php foreach ($single as $job) : ?>
+<?php foreach ($filtered_jobs as $job) : ?>
     <h1><?php echo $job['role_name']; ?></h1>
     <p><strong>Location:</strong> <?php echo $job['job_location']; ?></p>
     <p><strong>Application Deadline:</strong> <?php echo $job['application_deadline']; ?></p>

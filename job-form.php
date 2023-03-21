@@ -39,15 +39,6 @@ get_header(); ?>
                 return $job['role_id'] === $role_id;
             });
 
-            // Get the first matching job
-            $singlejob = reset($filtered_jobs);
-            
-            // Check if the job object was found
-            if ($singlejob === null) {
-                echo 'Error: Job with role ID ' . $role_id . ' not found.';
-                die();
-            }
-
             // Load the template file
             require 'single_job.php';
 
