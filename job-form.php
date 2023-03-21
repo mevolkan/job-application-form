@@ -31,22 +31,18 @@ get_header(); ?>
             $jobs = json_decode($response, true);
 
             // Define the desired role ID
-            $role_id = 19111;
-
+            $role_id = 19158;
 
             // Filter jobs by role_id
             $filtered_jobs = array_filter($jobs, function ($job) use ($role_id) {
                 return $job['role_id'] === $role_id;
             });
 
-            // Load the template file
-            require 'single_job.php';
-
-            // Set the title and jobs array for the template
-            $singlejobs = array($singlejob);
-
+            ob_start();
+            include 'single_job.php';
+            $singlejob = ob_get_clean();
             // Render the template
-            echo $template;
+            echo $singlejob;
 
         ?>
             <form id="careersform">
@@ -152,21 +148,12 @@ get_header(); ?>
             // render the template
             ob_start();
             include 'jobs_template.php';
-            $content = ob_get_clean();
-
-
-
+            $alljobs = ob_get_clean();
             // output the response
-            echo $content;
+            echo $alljobs;
         }
-
         ?>
-
-
-
-
     </div>
-
 </div>
 <?php
 get_footer(); ?>

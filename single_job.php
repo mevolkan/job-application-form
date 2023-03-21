@@ -1,5 +1,4 @@
 <?php foreach ($filtered_jobs as $job) : ?>
-    <h1><?php echo $job['role_name']; ?></h1>
     <?php if ($job['role_name'] != null) : ?>
         <h1> <?php echo $job['role_name']; ?></h1>
     <?php endif; ?>
