@@ -1,5 +1,6 @@
 #careersform {
   padding: 20px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 input[type="number"],
 input[type="file"] {
@@ -15,6 +16,10 @@ input[type="file"] {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   border-radius: 4px;
+}
+.job-container {
+  width: 70%;
+  margin: 30px auto;
 }
 .about {
   display: -webkit-box;
@@ -39,3 +44,4 @@ input[type="file"] {
 .job:hover .vc_column-inner {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
+
