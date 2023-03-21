@@ -13,7 +13,6 @@
         <h2>Qualifications</h2>
         <p> <?php echo $job['qualifications']; ?></p>
     <?php endif; ?>
-    
     <?php echo $job['qualifications']; ?>
     <?php if ($job['start_date'] != null) : ?>
         <p><strong>Start Date:</strong> <?php echo $job['start_date']; ?></p>

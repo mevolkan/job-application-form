@@ -16,3 +16,26 @@ input[type="file"] {
   transition: all 0.2s ease;
   border-radius: 4px;
 }
+.about {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.job {
+  padding: 1% 0;
+}
+.job a {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.job .vc_column-inner {
+  padding: 4%;
+  border: 1px solid rgba(112, 112, 112, 0.1);
+  border-radius: 25px 0 0 0;
+}
+.job:hover .vc_column-inner {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
