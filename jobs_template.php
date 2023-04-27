@@ -9,7 +9,7 @@
                     <p><?php echo $job['job_location']; ?></p>
                     <h3> <?php echo $job['role_name']; ?></h3>
                     <div class="about"><?php echo $job['about_role']; ?></div>
-                    <a class='nectar-button medium regular extra-color-2 has-icon regular-button' href="<?php echo site_url(); ?>/apply-job/?job_id=<?php echo $job['role_id']; ?>"> Apply</a>
+                    <a class='nectar-button small regular accent-color  regular-button' href="<?php echo site_url(); ?>/apply-job/?job_id=<?php echo $job['role_id']; ?>"> Apply</a>
                 </div>
             </div>
         <?php endforeach; ?>

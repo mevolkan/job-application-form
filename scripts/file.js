@@ -19,7 +19,7 @@ function uploadFiles(files, id) {
     var formData = new FormData();
     formData.append("file", files[0]);
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/skunk/wp-content/plugins/job/ajax.php", true);
+    xhttp.open("POST", "/wp-content/plugins/job/ajax.php", true);
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         var response = this.responseText;
