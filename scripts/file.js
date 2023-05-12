@@ -91,7 +91,8 @@ function sendFormData() {
 
     var applicationData = JSON.stringify(Object.fromEntries(formData));
 
-    var url = "https://odoo.staging.saner.gy/apply-job";
+    //var url = "https://webhook.site/41d762a8-c49e-40cd-becf-86ac3213b501";
+    var url = "https://webhook.site/41d762a8-c49e-40cd-becf-86ac3213b501";
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);

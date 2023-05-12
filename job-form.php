@@ -10,7 +10,7 @@ get_header(); ?>
     <div>
         <?php
         $url = 'https://odoo.develop.saner.gy/fetch-jobs';
-        $params = array('company_id' => 1);
+        $params = array('company_id' => 2);
         $url .= '?' . http_build_query($params);
         $response = @file_get_contents($url);
 
