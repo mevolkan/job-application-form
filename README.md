@@ -1,8 +1,9 @@
-# job application form
-intergrates to wordpress and adds ability to send applications to Odoo
+# Odoo job application form
+integrates to WordPress and adds the ability to send job applications to Odoo
 
-Needs rework in the following
-Use php templatin
+It needs rework in the following
+Add seetings to add the job URL to be applied to, at the moment it is hard coded
+Use php templating for the jobs
 manage the document downloads
 track application
 
